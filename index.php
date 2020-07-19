@@ -40,6 +40,7 @@ if ($_POST) {
         $extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
         $nombreImagen = $nombreAleatorio . "." . $extension;
         move_uploaded_file($archivo_tmp, "file/$nombreImagen");
+      
     }
 
     if (isset($_GET['id'])) {

@@ -1,1 +1,1 @@
-{"0":{"dni":"36629320","nombre":"Juan","telefono":"2603332244","correo":"juan@patts.com","imagen":"2020071905074233.png"},"2":{"dni":"134482212","nombre":"Vale","telefono":"4332122","correo":"vale@gmail.com","imagen":"2020071905074143.png"}}
+[{"dni":"35621992","nombre":"Mario","telefono":"4332122","correo":"mario@patts.com","imagen":"2020071908072141.png"},{"dni":"33423423","nombre":"Lucas Gaston","telefono":"2603332244","correo":"lucaslopez@patts.com","imagen":"2020071908074544.png"}]
