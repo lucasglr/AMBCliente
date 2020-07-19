@@ -1,0 +1,35 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+h1{
+    font-weight: 600;
+}
+.fa-plus{
+    font-size: 20px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px 14px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 40px;
+}
+
+.fa-edit{
+    font-size: 17px;
+    border: 1px solid;
+    background-color: #17a2b8;
+    padding: 11px 12px;
+    border-radius: 50%;
+    color: white;
+
+}
+.fa-trash-alt{
+    font-size: 17px;
+    border: 1px solid;
+    background-color: #dc3545;
+    padding: 11px 12px;
+    border-radius: 50%;
+    color: white;
+
+}
