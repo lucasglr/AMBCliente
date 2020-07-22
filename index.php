@@ -1,6 +1,6 @@
 <?php
 
-$alert = "";
+
 
 if (file_exists("datos.txt")) {
     $jsonCliente = file_get_contents("datos.txt");
@@ -9,6 +9,7 @@ if (file_exists("datos.txt")) {
     $aClientes[] = "";
 }
 $id = isset($_GET["id"]) ? $_GET["id"] : "";
+$aMsj=array("mensaje"=>"","codigo"=>"");
 
 
 if (isset($_GET["do"]) && isset($_GET["id"]) && $_GET["do"] == "eliminar") {
@@ -20,7 +21,7 @@ if (isset($_GET["do"]) && isset($_GET["id"]) && $_GET["do"] == "eliminar") {
     $jsonaCliente = json_encode($aClientes);
     file_put_contents("datos.txt", $jsonaCliente);
     $id = "";
-    $alert = "<div class='alert alert-danger' role='alert'> Cliente eliminado </div>";
+    $aMsj=array("mensaje"=>"Cliente Eliminado","codigo"=>"danger");
     header("refresh:3; url=index.php");
 }
 
@@ -63,7 +64,7 @@ if ($_POST) {
             "imagen" => $nombreImagen
         );
         if ($aClientes[$id] != "") {
-            $alert = "<div class='alert alert-primary' role='alert'> Cliente editado </div>";
+            $aMsj=array("mensaje"=>"Cliente editado","codigo"=>"primary");
             header("refresh:3; url=index.php");
         }
     } else {
@@ -76,7 +77,7 @@ if ($_POST) {
             "imagen" => $nombreImagen
         );
         if ($aClientes != "") {
-            $alert = "<div class='alert alert-success' role='alert'> Cliente Cargado </div>";
+            $aMsj=array("mensaje"=>"Cliente Cargado","codigo"=>"success");
             header("refresh:3; url=index.php");
         }
     }
@@ -98,8 +99,8 @@ if ($_POST) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900&display=swap">
     <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../portfolio/css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../portfoliocss/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="css/estilo.css">
 
 
@@ -113,7 +114,15 @@ if ($_POST) {
                 <h1>Registro de Clientes</h1>
             </div>
         </div>
-        <?php echo $alert; ?>
+        <div class="row">
+            <div class="col-12">
+                <?php if($aMsj !=""):?>
+                <div class="alert alert-<?php echo $aMsj["codigo"];?>" role="alert">
+                    <?php echo $aMsj["mensaje"];?>
+                </div>
+                <?php endif;?>
+            </div>    
+        </div>
         <div class="row">
             <div class="col-12 col-sm-6">
                 <form action="" method="post" enctype="multipart/form-data">
